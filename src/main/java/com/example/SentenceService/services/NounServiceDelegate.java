@@ -14,7 +14,7 @@ import java.util.Date;
 @Service
 public class NounServiceDelegate {
     private @Value("${spring.cloud.kubernetes.discovery.enabled}") Boolean discoveryEnabled;
-    private @Value("${services.domain") String domain;
+    private @Value("${services.domain}") String domain;
     private @Value("${services.nounservice.name}") String name;
     private @Value("${services.nounservice.port}") String port;
 
