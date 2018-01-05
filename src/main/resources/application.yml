@@ -1,0 +1,67 @@
+spring:
+  profiles: default
+  cloud:
+    kubernetes:
+      discovery:
+        enabled: false
+server:
+  port: ${PORT:${SERVER_PORT:0}}
+
+services:
+  nounservice:
+    url: http://localhost
+    port: 30001
+---
+spring:
+  profiles: dev
+  cloud:
+    kubernetes:
+      discovery:
+        enabled: false
+server:
+  port: 30002
+
+services:
+  nounservice:
+    url: http://localhost
+    port: 30001
+
+services:
+  namespace: localhost
+  nounservice:
+    name:
+    port: 30001
+  articleservice:
+    name: articleservice
+    port: 8080
+  subjectservice:
+    name: subjectservice
+    port: 8080
+  verbservice:
+    name: verbservice
+    port: 8080
+
+---
+spring:
+  profiles: prod
+  cloud:
+    kubernetes:
+      discovery:
+        enabled: true
+server:
+  port: 8080
+
+services:
+  domain: myproject.svc.cluster.local
+  nounservice:
+    name: nounservice
+    port: 8080
+  articleservice:
+    name: articleservice
+    port: 8080
+  subjectservice:
+    name: subjectservice
+    port: 8080
+  verbservice:
+    name: verbservice
+    port: 8080

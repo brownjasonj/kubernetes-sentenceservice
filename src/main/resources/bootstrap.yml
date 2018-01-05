@@ -1,0 +1,13 @@
+#Bootstrap yml
+#Note for setting up the Consul configuration for the below, you need to set the following KV path in Consul
+# /configuration/SubjectService::<profile>/
+#
+# for example in this application we pick up the value for ${words} and so you need to configure the following
+# /configuration/SubjectService::prod/words to a value such as man,dog,
+#
+---
+spring:
+  application:
+    name: sentenceservice
+  profiles:
+    active: prod
