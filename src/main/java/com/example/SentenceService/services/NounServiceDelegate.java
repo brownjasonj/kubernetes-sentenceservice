@@ -24,7 +24,7 @@ public class NounServiceDelegate {
 
     public String callNounService()
     {
-        String url = "hhtp:://" + this.name + "." + this.domain + ":" + this.port;
+        String url = "http://" + this.name + "." + this.domain + ":" + this.port;
         System.out.println("Trying Nounservice at " + url);
 
         String response = restTemplate.exchange(url,
