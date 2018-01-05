@@ -22,11 +22,6 @@ server:
   port: 30002
 
 services:
-  nounservice:
-    url: http://localhost
-    port: 30001
-
-services:
   namespace: localhost
   nounservice:
     name:
